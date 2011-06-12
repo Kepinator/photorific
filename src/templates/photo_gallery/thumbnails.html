@@ -1,0 +1,13 @@
+ {% if thumbnails %}
+		{% for photo in thumbnails %}
+       	<div class="thumbnail" id="{{photo.id}}">
+        		<div class="border">
+        			<a href="/photo/{{photo.id}}/">
+        				<img src="/{{photo.thumbnail.url}}" title="{{photo.displayName}}" />
+        			</a>
+        		</div>
+        	</div>
+    	{% endfor %}
+    {% else %}
+    	<div id="helper_text"> You haven't added any photos to this album. <a class="addphoto" href="/addphoto/{{album_id}}"> Click here to add a photo.</a></div>
+    {% endif %}

@@ -1,0 +1,16 @@
+{% extends "photo_gallery/photorific_base.html" %}
+
+{% block title %}  Welcome to the Photorific gallery {% endblock %}
+
+{% block content %}
+
+
+<div id="input_form">
+    <form name="add_photo" enctype="multipart/form-data" action="/savephoto/{{album_id}}/" method="POST">
+        {{ form.as_p }}
+        <p><input type="submit" id="submit_photo" value="Submit"></p>
+    </form>
+</div> 
+
+
+{% endblock %}

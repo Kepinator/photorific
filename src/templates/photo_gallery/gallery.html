@@ -1,0 +1,51 @@
+{% extends "photo_gallery/photorific_base.html" %}
+
+{% block title %}  Welcome to the Photorific Gallery {% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$('.addphoto').click(function(e) {
+		e.preventDefault();
+		$('#addphoto_form').load('/addphoto/{{album.id}}').dialog({
+	        modal: true,
+	        position: 'center',
+	        width: 350,
+	        show: "blind",
+	        hide: "blind"
+		});
+	});
+	$('.thumbnail').live("click",function(e) {    /* make sure this sticks even when we reload gallery content after delete */
+		e.preventDefault();
+		$('#photo_form').load('/photo/' + this.id).dialog({
+	        modal: true,
+	        position: 'top',
+	        width: 1000,
+	        show: "blind",
+	        hide: "blind"
+		});
+	});
+});
+</script>
+
+{% endblock %}
+
+{% block additional_items %}
+	<a class="nav_item" href="/addphoto/{{album_id}}">         
+		<div class="nav addphoto" id="addphoto">
+             Add Photo
+        </div>
+    </a>
+{% endblock %}
+
+{% block content %}
+<div id="title"><h1>Album: {{ album.name }}</h1> </div>
+<div id="gallery_display">
+	{% include "photo_gallery/thumbnails.html" %}
+</div> 
+
+
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends "photo_gallery/photorific_base.html" %}
+
+{% block title %}  Welcome to your Photorific Gallery {% endblock %}
+
+{% block content %}
+<div id="title"><h1>Albums</h1> </div>
+<div id="gallery_display">
+	{% if albums %}
+		{% for album in albums %}
+
+        	<a href="/gallery/{{album.id}}/">
+        		<div class="album">
+        			<img src={% if album.coverPhoto %}"/{{album.coverPhoto.thumbnail.url}}" {% else %}"/static/album.jpg" {% endif %}title="{{album.name}}" />
+        			<div class="album_name"><p>{{album.name}}</p></div>
+        		</div>
+			</a>
+    	{% endfor %}
+    {% else %}
+    	<div id="helper_text" class="addalbum"> You don't have any albums yet. <a href="/addalbum/"> Click here to create a photo album.</a></div>
+    {% endif %}
+</div> 
+
+
+{% endblock %}
+

@@ -1,0 +1,38 @@
+{% extends "photo_gallery/photorific_base.html" %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#register_button').click(function() {
+			$('#register_form').load('/register/').dialog({
+		        modal: true,
+		        position: 'center',
+		        show: "blind",
+		        hide: "blind"
+			});
+		});
+	});
+</script>
+
+{% endblock %}
+
+{% block nav %}{% endblock %}
+
+{% block content %}
+
+
+
+
+<div id="login_form" class="form">
+	<form name="login" action="/login/" method="POST">
+		{% csrf_token %}
+            {{ form.as_p }}
+        <p><input type="submit" id="Login" value="Login"></p>
+    </form>
+	<p>Don't have a user name yet?     <input type="button" id="register_button" value="Register!" /></p>
+</div>
+
+<div id="register_form"></div>
+
+{% endblock %}

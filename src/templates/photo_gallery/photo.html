@@ -1,0 +1,32 @@
+{% extends "photo_gallery/photorific_base.html" %}
+
+{% block title %}  Welcome to the Photorific gallery {% endblock %}
+
+{% block content %}
+
+
+<div id="cover_photo" class="photo_options">
+	<input type="button" value="Set As Cover Photo" />
+</div>
+<div id="delete_photo" class="photo_options">
+	<input type="button" value="Delete Photo" />
+</div>
+
+<div id="photo_title">
+<h2>{{photo.displayName}}</h2>
+</div>
+
+<div id="display_photo">
+	<img src="/photos/{{photo.photo}}" style="max-height:500px ; max-width:500px" title={{photo.displayName}} />
+</div> 
+
+<div id="photo_description">
+{{photo.comments}}
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "photo_gallery/photorific_base.html" %}
+
+{% block content %}
+
+<div id="login_form">
+	<form name="addalbum" action="/savealbum/" method="POST">
+            {{ form.as_p }}
+        <p><input type="submit" id="Add_Album" value="Add Album"></p>
+    </form>
+</div>
+
+{% endblock %}

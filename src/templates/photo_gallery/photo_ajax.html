@@ -1,0 +1,23 @@
+<script type="text/javascript">
+	
+
+</script>
+
+<div class="photo_options cover_photo">
+	<input type="button" value="Set As Cover Photo" onclick="javascript: $('#gallery_display').load('/coverphoto/{{photo.id}}'); $(this).closest('.ui-dialog-content').dialog('close');" />
+</div>
+<div id="delete_photo" class="photo_options">
+	<input type="button" value="Delete Photo" onclick="javascript: $('#gallery_display').load('/deletephoto/{{photo.id}}'); $(this).closest('.ui-dialog-content').dialog('close');" />
+</div>
+<div id="photo_title">
+<h2>{{photo.displayName}}</h2>
+</div>
+
+<div id="display_photo">
+	<img src="/photos/{{photo.photo}}" style="max-height:500px ; max-width:500px" title={{photo.displayName}} />
+</div> 
+
+<div id="photo_description">
+{{photo.comments}}
+</div>
+

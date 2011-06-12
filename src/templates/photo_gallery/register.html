@@ -1,0 +1,11 @@
+{% extends "photo_gallery/photorific_base.html" %}
+
+{% block content %}
+<div id="login_form" class="form_register">
+	<form id="register_user" action="" method="POST">
+			{% csrf_token %}
+    	    {{ form.as_p }}
+        	<p><input type="submit" id="register" value="Register"></p>
+	</form>
+</div>
+{% endblock %}
